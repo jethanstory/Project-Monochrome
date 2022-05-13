@@ -772,6 +772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: b6584562b92507b45b97648fb9a31e0d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ef17f964f6514134cafad0241207b7d1, type: 2}
     - target: {fileID: 919132149155446097, guid: b6584562b92507b45b97648fb9a31e0d, type: 3}
       propertyPath: m_Name
       value: old_lamppost
@@ -951,7 +955,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: b6584562b92507b45b97648fb9a31e0d, type: 3}
   m_PrefabInstance: {fileID: 1713011793}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1971560270
+--- !u!136 &1971560273
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,2 +1,2 @@
 # Project-Monochrome
-A surreal fps horror game
+A surreal fps test enviornment/horror game
