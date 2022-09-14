@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 720214144}
   - component: {fileID: 720214143}
   m_Layer: 5
-  m_Name: GameOverPanel
+  m_Name: MainMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: REMAIN
+  m_Text: MONOCHROME
 --- !u!222 &1341227223
 CanvasRenderer:
   m_ObjectHideFlags: 0
