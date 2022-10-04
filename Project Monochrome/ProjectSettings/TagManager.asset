@@ -9,6 +9,7 @@ TagManager:
   - destroyObject
   - PickUpRadio
   - thrownFlare
+  - PickUpBolt
   layers:
   - Default
   - TransparentFX
