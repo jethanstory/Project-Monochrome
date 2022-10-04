@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: d985ccf05f4ffd8458d6e1fbe747a70d, type: 2}
 --- !u!1001 &9761524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11410,7 +11410,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -11419,7 +11419,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.14583397
+        value: 0.2
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -13748,6 +13748,10 @@ PrefabInstance:
     - target: {fileID: 4767000698529326, guid: 425d4599260428c42a8ba97aa958d0f6, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767000698529326, guid: 425d4599260428c42a8ba97aa958d0f6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4870055264523890, guid: 425d4599260428c42a8ba97aa958d0f6, type: 3}
       propertyPath: m_LocalScale.y
