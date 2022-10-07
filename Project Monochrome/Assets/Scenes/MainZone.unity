@@ -13169,6 +13169,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: picnic_table_proto
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f21e40b7244842b44ab6da3c0fa59d86, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f21e40b7244842b44ab6da3c0fa59d86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f21e40b7244842b44ab6da3c0fa59d86, type: 3}
 --- !u!1 &1119815402 stripped
