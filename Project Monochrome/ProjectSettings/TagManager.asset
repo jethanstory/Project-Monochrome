@@ -10,6 +10,7 @@ TagManager:
   - PickUpRadio
   - thrownFlare
   - PickUpBolt
+  - AnomalyBoltTrigger
   layers:
   - Default
   - TransparentFX

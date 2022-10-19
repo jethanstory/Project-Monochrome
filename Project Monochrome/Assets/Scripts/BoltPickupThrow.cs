@@ -35,13 +35,8 @@ public class BoltPickupThrow : MonoBehaviour
 
     public GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
 
-
-
     bool canpickup; //a bool to see if you can or cant pick up the item
     bool hasItem; // a bool to see if you have an item in your hand
-
-
-
 
     void Start () {
         //light = GetComponent<Light> ();
