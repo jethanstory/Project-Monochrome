@@ -8025,7 +8025,6 @@ GameObject:
   - component: {fileID: 396507022}
   - component: {fileID: 396507021}
   - component: {fileID: 396507020}
-  - component: {fileID: 396507026}
   m_Layer: 0
   m_Name: TestAnomalyStaticEmTest
   m_TagString: AnomalyBoltTrigger
@@ -8189,10 +8188,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396507019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &396507023
 MeshRenderer:
@@ -8261,19 +8260,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &396507026
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396507019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 15
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &403608724
 GameObject:
   m_ObjectHideFlags: 0
@@ -22896,11 +22882,11 @@ Halo:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794284008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Color:
     serializedVersion: 2
     rgba: 4281335788
-  m_Size: 1
+  m_Size: 0.5
 --- !u!108 &794284011
 Light:
   m_ObjectHideFlags: 0
@@ -23708,7 +23694,7 @@ ParticleSystem:
   m_GameObject: {fileID: 855509397}
   serializedVersion: 7
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -70116,7 +70102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1727272421
 Transform:
   m_ObjectHideFlags: 0
