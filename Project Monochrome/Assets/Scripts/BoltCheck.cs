@@ -83,7 +83,7 @@ public class BoltCheck : MonoBehaviour
                 other.gameObject.GetComponent <ParticleSystem>().Stop();
             
 
-        //sound.SetActive(false);
+                sound.SetActive(false);
 
         //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         //em.enabled = false;

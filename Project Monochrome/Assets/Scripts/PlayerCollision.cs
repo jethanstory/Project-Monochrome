@@ -19,15 +19,15 @@ public class PlayerCollision : MonoBehaviour
         }
         
     }
-    // void OnTriggerEnter(Collider other) // to see when the player enters the collider
-    // {
-    //     if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
-    //     {
-    //         Cursor.lockState = CursorLockMode.None;
-    //         SceneManager.LoadScene(2);
-    //         Debug.Log("HIT");
-    //     }
-    // }
+    void OnTriggerEnter(Collider other) // to see when the player enters the collider
+    {
+        if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(2);
+            Debug.Log("HIT");
+        }
+    }
     
 
 
