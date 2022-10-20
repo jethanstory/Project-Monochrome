@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof(ParticleSystem))]
 public class BoltCheck : MonoBehaviour
 {
 
-    public ParticleSystem smoker;
+    public GameObject smoker;
     //public GameObject smokeSource;
-    public bool smokeEnabled = true;
+    public bool smokeEnabled;
     // Start is called before the first frame update
     void Start()
     {
-        smoker = GetComponent<ParticleSystem>();
-        smokeEnabled = false;
+        //smoker = GetComponent<ParticleSystem>();
+        //smoker.Stop();
+        smoker.GetComponent <ParticleSystem>().Stop();
+        
     }
 
     // Update is called once per frame
@@ -35,12 +38,23 @@ public class BoltCheck : MonoBehaviour
     {
         if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
             {
-                if (smokeEnabled == false)
-                {
+                //if (smokeEnabled == false)
+                //{
                     //smoker.Play();
-                    var emission = smoker.emission;
-                    emission.enabled = true;
-                }
+                    //var emission = smoker.emission;
+                    //ParticleSystem.EmissionModule emission = smoker.emission;
+                    //smoker.emission.enabled = true;
+                    //smoker.GetComponent<ParticleSystem>().enableEmission = true;
+                    //smokeEnabled = true;
+                    
+                    //smoker.Play();
+
+
+                    smoker.GetComponent <ParticleSystem>().Play();
+
+                    //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+                    //em.enabled = true;
+                //}
  
                 // else
                 // {
@@ -54,8 +68,18 @@ public class BoltCheck : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        var emission = smoker.emission;
-        emission.enabled = false;
+        //var emission = smoker.emission;
+        //ParticleSystem.EmissionModule emission = smoker.emission;
+        //smokeEnabled = false;
+        //smoker.emission.enabled = false;
+        //smoker.GetComponent<ParticleSystem>().enableEmission = false;
+
+        smoker.GetComponent <ParticleSystem>().Stop();
+
+        //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+        //em.enabled = false;
+
+        //smoker.Stop();
 
     }
 

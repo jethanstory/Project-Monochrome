@@ -2168,7 +2168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 870bd899f0dc3e44b8fe577f73a51944, type: 3}
       propertyPath: m_TagString
-      value: AnomalyBoltTrigger
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 870bd899f0dc3e44b8fe577f73a51944, type: 3}
       propertyPath: m_Name
@@ -8026,10 +8026,9 @@ GameObject:
   - component: {fileID: 396507021}
   - component: {fileID: 396507020}
   - component: {fileID: 396507026}
-  - component: {fileID: 396507027}
   m_Layer: 0
   m_Name: TestAnomalyStaticEmTest
-  m_TagString: Untagged
+  m_TagString: AnomalyBoltTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8252,7 +8251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396507019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 469.57, y: 42.82, z: 481.3}
+  m_LocalPosition: {x: 466.05, y: 42.82, z: 481.3}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 794284009}
@@ -8270,25 +8269,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396507019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &396507027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396507019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52385677ce180a647b1b9179c135a922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoker: {fileID: 855509400}
-  smokeEnabled: 0
 --- !u!1 &403608724
 GameObject:
   m_ObjectHideFlags: 0
@@ -56673,6 +56658,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: f6c8ed1466c1b3c499b670142d97273b, type: 3}
   m_PrefabInstance: {fileID: 1375982420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1375982425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375982422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52385677ce180a647b1b9179c135a922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoker: {fileID: 855509397}
+  smokeEnabled: 0
 --- !u!54 &1375982427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78498,6 +78497,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 870bd899f0dc3e44b8fe577f73a51944, type: 3}
   m_PrefabInstance: {fileID: 224984842}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1968010523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968010522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52385677ce180a647b1b9179c135a922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoker: {fileID: 855509397}
+  smokeEnabled: 0
 --- !u!64 &1968010524
 MeshCollider:
   m_ObjectHideFlags: 0
