@@ -8,7 +8,7 @@ public class PickupRadio : MonoBehaviour
     public GameObject myHands; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
-    bool hasItem; // a bool to see if you have an item in your hand
+    //bool hasItem; // a bool to see if you have an item in your hand
 
 
     public GameObject radio;
@@ -18,7 +18,7 @@ public class PickupRadio : MonoBehaviour
     void Start()
     {
         canpickup = false;    //setting both to false
-        hasItem = false;
+        //hasItem = false;
     }
 
     // Update is called once per frame

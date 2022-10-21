@@ -36,7 +36,7 @@ public class BoltPickupThrow : MonoBehaviour
     public GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
 
     bool canpickup; //a bool to see if you can or cant pick up the item
-    bool hasItem; // a bool to see if you have an item in your hand
+    //bool hasItem; // a bool to see if you have an item in your hand
 
     void Start () {
         //light = GetComponent<Light> ();
@@ -44,7 +44,7 @@ public class BoltPickupThrow : MonoBehaviour
         //light3 = GetComponent<Light> ();
         //canThrow = false;
         canpickup = false;    //setting both to false
-        hasItem = false;
+        //hasItem = false;
         //audio = GetComponent<AudioSource>();
     }
 
