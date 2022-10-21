@@ -12,7 +12,7 @@ public class FlashLightMech : MonoBehaviour
     void Update()
     {
         //if (Input.GetButtonDown("FKey"))
-        if (Input.GetMouseButtonDown(1)) //(Input.GetKeyDown(KeyCode.F)
+        if (Input.GetKeyDown(KeyCode.F)) //(Input.GetMouseButtonDown(1)) //
         {
             if (isOn == false)
                 {

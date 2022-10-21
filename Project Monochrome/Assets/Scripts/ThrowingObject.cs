@@ -66,7 +66,7 @@ public class ThrowingObject : MonoBehaviour
         
 
         if (flareCount > 0) { //canThrow == true
-            if (Input.GetKeyDown(KeyCode.F)) //(Input.GetMouseButtonDown(0)) // && canThrow == true
+            if (Input.GetMouseButtonDown(1))//(Input.GetKeyDown(KeyCode.F)) //(Input.GetMouseButtonDown(0)) // && canThrow == true
 
             {
             flareCount -= 1; //flareCount
