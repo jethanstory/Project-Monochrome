@@ -88808,9 +88808,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 0.1
+    light: {fileID: 1650767539}
     randomDistribution: 1
     color: 1
     range: 1
@@ -88818,7 +88818,7 @@ ParticleSystem:
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -92124,7 +92124,7 @@ GameObject:
   - component: {fileID: 1650767539}
   - component: {fileID: 1650767538}
   m_Layer: 0
-  m_Name: Area Light
+  m_Name: Area Light TestAnomalyStatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
