@@ -131,7 +131,7 @@ public class ThrowingObject : MonoBehaviour
             light.SetActive(lightEnabled);
         }
         
-        
+        //Object.Destroy(gameObject, 2.0f);
         
         /*
         //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
