@@ -67,7 +67,7 @@ public class BoltPickupThrow : MonoBehaviour
 
             //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
             Launch();
-            
+            //StartCoroutine(ExampleCoroutine());
             }
         }
 
@@ -165,4 +165,8 @@ public class BoltPickupThrow : MonoBehaviour
         canpickup = false; //when you leave the collider set the canpickup bool to false
      
     }
+    // IEnumerator ExampleCoroutine()
+    // {
+    //     yield return new WaitForSeconds(5);
+    // }
 }

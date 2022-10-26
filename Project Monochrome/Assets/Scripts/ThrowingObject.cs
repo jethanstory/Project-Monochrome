@@ -78,7 +78,6 @@ public class ThrowingObject : MonoBehaviour
 
             //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
             Launch();
-            
             }
         }
 
