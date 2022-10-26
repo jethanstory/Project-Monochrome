@@ -150,7 +150,7 @@ public class ThrowingObject : MonoBehaviour
         //light2.enabled = true;
         //light3.enabled = true;
 
-
+        Object.Destroy(flareInstance, 2.0f);
 
 
 

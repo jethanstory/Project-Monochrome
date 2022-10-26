@@ -144,7 +144,7 @@ public class BoltPickupThrow : MonoBehaviour
         //light3.enabled = true;
 
 
-        //Object.Destroy(gameObject, 2.0f);
+        Object.Destroy(boltInstance, 5.0f);
 
 
 
