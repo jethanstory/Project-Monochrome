@@ -156,7 +156,14 @@ public class BoltPickupThrow : MonoBehaviour
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
-            boltCount += 1;
+            boltCount += 1; //1
+            Destroy(ObjectIwantToPickUp);
+        }
+        if(other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            canpickup = true;  //set the pick up bool to true
+            ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+            boltCount += 30; //1
             Destroy(ObjectIwantToPickUp);
         }
     }
