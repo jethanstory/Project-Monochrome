@@ -24,6 +24,7 @@ public class PlayerCollision : MonoBehaviour
         if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(2);
             Debug.Log("HIT");
         }
