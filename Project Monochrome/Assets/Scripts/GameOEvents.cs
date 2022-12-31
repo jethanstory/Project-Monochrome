@@ -22,4 +22,9 @@ public class GameOEvents : MonoBehaviour
     {
         SceneManager.LoadScene("MainZone"); //SceneManager.LoadScene("Forest");
     }
+
+    public void MainMenuScene() 
+    {
+        SceneManager.LoadScene("MainMenu"); //SceneManager.LoadScene("Forest");
+    }
 }
