@@ -12,6 +12,9 @@ TagManager:
   - PickUpBolt
   - AnomalyBoltTrigger
   - PickUpBoltBox
+  - RadiationFatal
+  - RadiationMedium
+  - RadiationLow
   layers:
   - Default
   - TransparentFX
