@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GamePauseScr : MonoBehaviour
 {
     public GameObject menuCanvas;
-    private bool activeMenu; 
+    public bool activeMenu; 
     public Text Txt;
     public GameObject fpsPlayer;
 
@@ -53,8 +53,8 @@ public class GamePauseScr : MonoBehaviour
         }
         else
         {
-            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
-            Txt.text = fpsPlayer.GetComponent<BoltPickupThrow>().boltCount.ToString();
+            // Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt.text = fpsPlayer.GetComponent<BoltPickupThrow>().boltCount.ToString();
             activeMenu = true;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;

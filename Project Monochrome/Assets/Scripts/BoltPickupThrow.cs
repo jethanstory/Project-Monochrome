@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoltPickupThrow : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BoltPickupThrow : MonoBehaviour
     public GameObject staticBolt;
 
     float range = 15f;
+
+    public Text Txt;
 
     public GameObject myHands; //reference to your hands/the position where you want your object to go
 
@@ -31,6 +34,8 @@ public class BoltPickupThrow : MonoBehaviour
     float boltTime;
     public GameObject boltCanvas;
     public GameObject boltCanvasLarge;
+    public string defaultBolt = " ";
+    public GameObject fpsPlayer;
     //public AudioSource audio;
 
     public GameObject[] lights;
@@ -57,8 +62,8 @@ public class BoltPickupThrow : MonoBehaviour
     void FixedUpdate() //FixedUpdate()
 
     {
-        throwCheck();
-        
+        //throwCheck();
+        //MenuCheck();
 
         if (boltCount > 0) { //canThrow == true
             if (Input.GetMouseButtonDown(0)) // && canThrow == true
@@ -98,6 +103,21 @@ public class BoltPickupThrow : MonoBehaviour
                 boltCanvasLarge.SetActive(false);
             }
         }
+        
+        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            Txt.text = boltCount.ToString();
+            
+        }
+
+        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            Txt.text = defaultBolt;
+        }
+
+        
 
         
     }
@@ -176,6 +196,11 @@ public class BoltPickupThrow : MonoBehaviour
 
 
 
+    }
+
+    private void MenuCheck()
+    {
+        
     }
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
