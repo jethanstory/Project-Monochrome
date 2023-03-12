@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePauseScr : MonoBehaviour
 {
     public GameObject menuCanvas;
     private bool activeMenu; 
+    public Text Txt;
+    public GameObject fpsPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class GamePauseScr : MonoBehaviour
             // // menuCanvas.SetActive(false);
             // // playerHudCanvas.SetActive(true);
             // }
+            // Txt = GameObject.Find ("").GetComponent<Text> ();
+            // Txt.text = "";
         }
 
 
@@ -37,7 +42,7 @@ public class GamePauseScr : MonoBehaviour
 
 
     public void checkMenu()
-    {   
+    {
         if (activeMenu)
         {
             activeMenu = false;
@@ -48,6 +53,8 @@ public class GamePauseScr : MonoBehaviour
         }
         else
         {
+            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            Txt.text = fpsPlayer.GetComponent<BoltPickupThrow>().boltCount.ToString();
             activeMenu = true;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;

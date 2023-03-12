@@ -25,6 +25,12 @@ public class BoltPickupThrow : MonoBehaviour
     // Update is called once per frame
 
     public int boltCount = 0;
+
+    public bool boltPicked = false;
+    public bool largeBoltPicked = false;
+    float boltTime;
+    public GameObject boltCanvas;
+    public GameObject boltCanvasLarge;
     //public AudioSource audio;
 
     public GameObject[] lights;
@@ -68,6 +74,28 @@ public class BoltPickupThrow : MonoBehaviour
             //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
             Launch();
             //StartCoroutine(ExampleCoroutine());
+            }
+        }
+
+        if (boltPicked)
+        {
+            largeBoltPicked = false;
+            boltTime += Time.deltaTime;
+            boltCanvas.SetActive(true);
+            if (boltTime > 2)
+            {
+                boltCanvas.SetActive(false);
+            }
+        }
+
+        if (largeBoltPicked)
+        {
+            boltPicked = false;
+            boltTime += Time.deltaTime;
+            boltCanvasLarge.SetActive(true);
+            if (boltTime > 2)
+            {
+                boltCanvasLarge.SetActive(false);
             }
         }
 
@@ -154,16 +182,20 @@ public class BoltPickupThrow : MonoBehaviour
     {
         if(other.gameObject.tag == "PickUpBolt") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             boltCount += 1; //1
             Destroy(ObjectIwantToPickUp);
+            boltPicked = true;
         }
         if(other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             boltCount += 30; //1
+            largeBoltPicked = true;
             Destroy(ObjectIwantToPickUp);
         }
     }
