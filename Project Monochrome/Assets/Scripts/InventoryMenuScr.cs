@@ -47,11 +47,13 @@ public class InventoryMenuScr : MonoBehaviour
         {
             activeInven = false;
             invenCanvas.SetActive(false);
+            fpsPlayer.GetComponent<GamePauseScr>().enabled = true;
         }
         else
         {
             activeInven = true;
             invenCanvas.SetActive(true);
+            fpsPlayer.GetComponent<GamePauseScr>().enabled = false;
 
         }
     }

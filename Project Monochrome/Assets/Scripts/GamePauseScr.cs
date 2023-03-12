@@ -8,7 +8,9 @@ public class GamePauseScr : MonoBehaviour
     public GameObject menuCanvas;
     public bool activeMenu; 
     public Text Txt;
+    public Text Txt2;
     public GameObject fpsPlayer;
+    public GameObject invenCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,12 @@ public class GamePauseScr : MonoBehaviour
             // }
             // Txt = GameObject.Find ("").GetComponent<Text> ();
             // Txt.text = "";
+
+
+            // Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            // Txt.text = " ";
+            // Txt2 = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt2.text = " ";
         }
 
 
@@ -50,6 +58,8 @@ public class GamePauseScr : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             menuCanvas.SetActive(false);
+            fpsPlayer.GetComponent<InventoryMenuScr>().enabled = true;
+            
         }
         else
         {
@@ -60,6 +70,12 @@ public class GamePauseScr : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             menuCanvas.SetActive(true);
+            //invenCanvas.SetActive(false);
+            fpsPlayer.GetComponent<InventoryMenuScr>().enabled = false;
+            // Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            // Txt.text = " ";
+            // Txt2 = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt2.text = " ";
 
         }
     }
