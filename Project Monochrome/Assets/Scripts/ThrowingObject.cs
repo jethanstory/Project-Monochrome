@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 //this script is used for throwing the grenade and destrouing it after some delay
 
@@ -37,7 +38,15 @@ public class ThrowingObject : MonoBehaviour
     private bool lightEnabled;
     //public GameObject[] sounds;
 
+    public Text Txt;
+    public GameObject fpsPlayer;
+
     //public bool canThrow;
+    public bool flarePicked;
+    public float flareTime;
+    public GameObject flareCanvas;
+
+    public string defaultFlare = " ";
 
     public GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
 
@@ -79,6 +88,30 @@ public class ThrowingObject : MonoBehaviour
             //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
             Launch();
             }
+        }
+
+        if (flarePicked)
+        {
+            flareTime += Time.deltaTime;
+            flareCanvas.SetActive(true);
+            if (flareTime > 2)
+            {
+                flareCanvas.SetActive(false);
+                flarePicked = false;
+            }
+        }
+
+        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            Txt.text = flareCount.ToString();
+            
+        }
+
+        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            Txt.text = defaultFlare;
         }
 
         
@@ -164,6 +197,7 @@ public class ThrowingObject : MonoBehaviour
     {
         if(other.gameObject.tag == "PickUp") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            flarePicked = true;
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             flareCount += 1;
