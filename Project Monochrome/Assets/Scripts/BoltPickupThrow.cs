@@ -84,7 +84,7 @@ public class BoltPickupThrow : MonoBehaviour
 
         if (boltPicked)
         {
-            largeBoltPicked = false;
+            //largeBoltPicked = false;
             boltTime += Time.deltaTime;
             boltCanvas.SetActive(true);
             if (boltTime > 2)
@@ -95,7 +95,7 @@ public class BoltPickupThrow : MonoBehaviour
 
         if (largeBoltPicked)
         {
-            boltPicked = false;
+            //boltPicked = false;
             boltTime += Time.deltaTime;
             boltCanvasLarge.SetActive(true);
             if (boltTime > 2)
@@ -213,6 +213,7 @@ public class BoltPickupThrow : MonoBehaviour
             boltCount += 1; //1
             Destroy(ObjectIwantToPickUp);
             boltPicked = true;
+            largeBoltPicked = false;
         }
         if(other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
@@ -220,6 +221,7 @@ public class BoltPickupThrow : MonoBehaviour
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             boltCount += 30; //1
+            boltPicked = false;
             largeBoltPicked = true;
             Destroy(ObjectIwantToPickUp);
         }

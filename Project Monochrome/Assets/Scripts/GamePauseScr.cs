@@ -11,6 +11,7 @@ public class GamePauseScr : MonoBehaviour
     public Text Txt2;
     public GameObject fpsPlayer;
     public GameObject invenCanvas;
+    public GameObject controlPage;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,18 @@ public class GamePauseScr : MonoBehaviour
 
     }
 
+    public void ControlsEnable()
+    {
+        controlPage.SetActive(true);
+        menuCanvas.SetActive(false);
+    }
+
+    public void ControlsDisable()
+    {
+        controlPage.SetActive(false);
+        menuCanvas.SetActive(true);
+    }
+
 
     public void checkMenu()
     {
@@ -59,6 +72,7 @@ public class GamePauseScr : MonoBehaviour
             Cursor.visible = false;
             menuCanvas.SetActive(false);
             fpsPlayer.GetComponent<InventoryMenuScr>().enabled = true;
+            controlPage.SetActive(false);
             
         }
         else
