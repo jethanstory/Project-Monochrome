@@ -37,6 +37,8 @@ public class BoltPickupThrow : MonoBehaviour
     public string defaultBolt = " ";
     public GameObject fpsPlayer;
     //public AudioSource audio;
+    public bool firstPickup;
+    public GameObject boltExplain;
 
     public GameObject[] lights;
     private bool lightEnabled;
