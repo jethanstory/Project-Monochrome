@@ -48,7 +48,7 @@ public class IntroSceneScr : MonoBehaviour
                         if (startTime > 25)
                         {
                             introText5.SetActive(false);
-                            introText6.SetActive(false);
+                            introText6.SetActive(true);
                             if (startTime > 30)
                             {
                                 introText6.SetActive(false);
