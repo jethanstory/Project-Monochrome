@@ -29,29 +29,29 @@ public class IntroSceneScr : MonoBehaviour
     {
         startTime += Time.deltaTime;
         introText.SetActive(true);
-        if (startTime > 5)
+        if (startTime > 7)
         {
             introText.SetActive(false);
             introText2.SetActive(true);
 
-            if (startTime > 10)
+            if (startTime > 14)
             {
                 introText2.SetActive(false);
                 introText3.SetActive(true);
 
-                if (startTime > 15)
+                if (startTime > 21)
                 {
                     introText3.SetActive(false);
                     introText4.SetActive(true);
-                    if (startTime > 20)
+                    if (startTime > 28)
                     {
                         introText4.SetActive(false);
                         introText5.SetActive(true);
-                        if (startTime > 25)
+                        if (startTime > 35)
                         {
                             introText5.SetActive(false);
                             introText6.SetActive(true);
-                            if (startTime > 30)
+                            if (startTime > 42)
                             {
                                 introText6.SetActive(false);
                                 loadingText.SetActive(true);
