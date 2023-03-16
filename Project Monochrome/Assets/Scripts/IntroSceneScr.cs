@@ -13,12 +13,14 @@ public class IntroSceneScr : MonoBehaviour
     public GameObject introText5;
     public GameObject introText6;
     public GameObject loadingText;
+    public bool checkEnd;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        checkEnd = false;
         //SceneManager.LoadScene("MainZone");
     }
 
@@ -54,11 +56,17 @@ public class IntroSceneScr : MonoBehaviour
                                 introText6.SetActive(false);
                                 loadingText.SetActive(true);
                                 SceneManager.LoadScene("MainZone");
+                                checkEnd = true;
                             }
                         }
                     }
                 }
             }
+        }
+        if (checkEnd)
+        {
+            startTime = 0f;
+            checkEnd = false;
         }
     }
 }
