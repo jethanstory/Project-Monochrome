@@ -108,14 +108,14 @@ public class BoltPickupThrow : MonoBehaviour
         
         if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
         {
-            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
             Txt.text = boltCount.ToString();
             
         }
 
         if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
         {
-            Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
             Txt.text = defaultBolt;
         }
 
