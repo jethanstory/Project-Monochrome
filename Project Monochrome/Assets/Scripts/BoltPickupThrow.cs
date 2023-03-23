@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoltPickupThrow : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BoltPickupThrow : MonoBehaviour
     public GameObject staticBolt;
 
     float range = 15f;
+
+    public Text Txt;
 
     public GameObject myHands; //reference to your hands/the position where you want your object to go
 
@@ -25,7 +28,17 @@ public class BoltPickupThrow : MonoBehaviour
     // Update is called once per frame
 
     public int boltCount = 0;
+
+    public bool boltPicked = false;
+    public bool largeBoltPicked = false;
+    float boltTime;
+    public GameObject boltCanvas;
+    public GameObject boltCanvasLarge;
+    public string defaultBolt = " ";
+    public GameObject fpsPlayer;
     //public AudioSource audio;
+    public bool firstPickup;
+    public GameObject boltExplain;
 
     public GameObject[] lights;
     private bool lightEnabled;
@@ -51,8 +64,8 @@ public class BoltPickupThrow : MonoBehaviour
     void FixedUpdate() //FixedUpdate()
 
     {
-        throwCheck();
-        
+        //throwCheck();
+        //MenuCheck();
 
         if (boltCount > 0) { //canThrow == true
             if (Input.GetMouseButtonDown(0)) // && canThrow == true
@@ -70,6 +83,43 @@ public class BoltPickupThrow : MonoBehaviour
             //StartCoroutine(ExampleCoroutine());
             }
         }
+
+        if (boltPicked)
+        {
+            //largeBoltPicked = false;
+            boltTime += Time.deltaTime;
+            boltCanvas.SetActive(true);
+            if (boltTime > 2)
+            {
+                boltCanvas.SetActive(false);
+            }
+        }
+
+        if (largeBoltPicked)
+        {
+            //boltPicked = false;
+            boltTime += Time.deltaTime;
+            boltCanvasLarge.SetActive(true);
+            if (boltTime > 2)
+            {
+                boltCanvasLarge.SetActive(false);
+            }
+        }
+        
+        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
+            Txt.text = boltCount.ToString();
+            
+        }
+
+        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        {
+            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
+            Txt.text = defaultBolt;
+        }
+
+        
 
         
     }
@@ -150,20 +200,31 @@ public class BoltPickupThrow : MonoBehaviour
 
     }
 
+    private void MenuCheck()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         if(other.gameObject.tag == "PickUpBolt") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             boltCount += 1; //1
             Destroy(ObjectIwantToPickUp);
+            boltPicked = true;
+            largeBoltPicked = false;
         }
         if(other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
+            boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
             boltCount += 30; //1
+            boltPicked = false;
+            largeBoltPicked = true;
             Destroy(ObjectIwantToPickUp);
         }
     }

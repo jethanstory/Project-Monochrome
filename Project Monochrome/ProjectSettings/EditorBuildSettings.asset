@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverRadiation.unity
     guid: dacf4f77e83504c4285b3d62715b888c
+  - enabled: 1
+    path: Assets/Scenes/ZoneIntro.unity
+    guid: 6f3dc4083e9deed4fbe486481f4766cc
   m_configObjects: {}

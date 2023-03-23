@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePauseScr : MonoBehaviour
 {
     public GameObject menuCanvas;
-    private bool activeMenu; 
+    public bool activeMenu; 
+    public Text Txt;
+    public Text Txt2;
+    public GameObject fpsPlayer;
+    public GameObject invenCanvas;
+    public GameObject controlPage;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +36,34 @@ public class GamePauseScr : MonoBehaviour
             // // menuCanvas.SetActive(false);
             // // playerHudCanvas.SetActive(true);
             // }
+            // Txt = GameObject.Find ("").GetComponent<Text> ();
+            // Txt.text = "";
+
+
+            // Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            // Txt.text = " ";
+            // Txt2 = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt2.text = " ";
         }
 
 
     }
 
+    public void ControlsEnable()
+    {
+        controlPage.SetActive(true);
+        menuCanvas.SetActive(false);
+    }
+
+    public void ControlsDisable()
+    {
+        controlPage.SetActive(false);
+        menuCanvas.SetActive(true);
+    }
+
 
     public void checkMenu()
-    {   
+    {
         if (activeMenu)
         {
             activeMenu = false;
@@ -45,14 +71,25 @@ public class GamePauseScr : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             menuCanvas.SetActive(false);
+            fpsPlayer.GetComponent<InventoryMenuScr>().enabled = true;
+            controlPage.SetActive(false);
+            
         }
         else
         {
+            // Txt = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt.text = fpsPlayer.GetComponent<BoltPickupThrow>().boltCount.ToString();
             activeMenu = true;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             menuCanvas.SetActive(true);
+            //invenCanvas.SetActive(false);
+            fpsPlayer.GetComponent<InventoryMenuScr>().enabled = false;
+            // Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            // Txt.text = " ";
+            // Txt2 = GameObject.Find ("BoltsNumber").GetComponent<Text> ();
+            // Txt2.text = " ";
 
         }
     }
