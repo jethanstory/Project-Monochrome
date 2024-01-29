@@ -11,31 +11,56 @@ public class BoltCheck : MonoBehaviour
     public bool smokeEnabled;
     public GameObject sound;
 
+    public AudioSource audioSource;
+
+    public float reactionTime;
+
+    public bool boltDetected = false;
+    public bool boltCleared = false;
+
     // Start is called before the first frame update
     void Start()
     {
         //smoker = GetComponent<ParticleSystem>();
         //smoker.Stop();
-
+        
         //smoker.GetComponent <ParticleSystem>().Stop();
+        
         gameObject.GetComponent <ParticleSystem>().Stop();
+
+        //audioSource.Pause();
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if (smokeEnabled == !true)
-    //     {
-    //         smoker.Play();
-    //     }
+    //Update is called once per frame
+    void FixedUpdate()
+    {
+        // if (smokeEnabled == !true)
+        // {
+        //     smoker.Play();
+        // }
  
-    //     else
-    //     {
+        // else
+        // {
             
-    //         smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-    //     }
+        //     smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        // }
+
+        // if (boltDetected)
+        // {
+        //     sound.SetActive(true);
+        //     reactionTime+=Time.deltaTime;
+        //     if (reactionTime > 1)
+        //         {
+        //             sound.SetActive(false);
+        //         }
+        // }
+
+        // if (boltCleared)
+        // {
+        //     reactionTime = 0f;
+        // }
  
-    // }
+    }
     
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
@@ -53,7 +78,15 @@ public class BoltCheck : MonoBehaviour
                     //smoker.Play();
                     other.gameObject.GetComponent <ParticleSystem>().Play();
                     //smoker.GetComponent <ParticleSystem>().Play();
+                    
+                    boltDetected = true;
+                    boltCleared = false;
+
+                    //audioSource.Play(0);
+                    
                     sound.SetActive(true);
+
+                    
 
                     //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
                     //em.enabled = true;
@@ -84,6 +117,11 @@ public class BoltCheck : MonoBehaviour
             
 
                 sound.SetActive(false);
+
+                boltDetected = false;
+                boltCleared = true;
+
+                //audioSource.Pause();
 
         //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         //em.enabled = false;
