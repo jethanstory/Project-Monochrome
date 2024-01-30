@@ -23,10 +23,10 @@ public class BoltCheck : MonoBehaviour
     {
         //smoker = GetComponent<ParticleSystem>();
         //smoker.Stop();
-        
+
         //smoker.GetComponent <ParticleSystem>().Stop();
-        
-        gameObject.GetComponent <ParticleSystem>().Stop();
+
+        //gameObject.GetComponent <ParticleSystem>().Stop();
 
         //audioSource.Pause();
     }
@@ -38,96 +38,99 @@ public class BoltCheck : MonoBehaviour
         // {
         //     smoker.Play();
         // }
- 
+
         // else
         // {
-            
+
         //     smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         // }
 
-        // if (boltDetected)
-        // {
-        //     sound.SetActive(true);
-        //     reactionTime+=Time.deltaTime;
-        //     if (reactionTime > 1)
-        //         {
-        //             sound.SetActive(false);
-        //         }
-        // }
+        if (boltDetected)
+        {
+            sound.SetActive(true);
+            reactionTime += Time.deltaTime;
+            if (reactionTime > 1)
+            {
+                sound.SetActive(false);
+            }
+            boltCleared = true;
+        }
 
-        // if (boltCleared)
-        // {
-        //     reactionTime = 0f;
-        // }
- 
+        if (boltCleared)
+        {
+            boltDetected = false;
+            reactionTime = 0f;
+        }
+
+
     }
-    
+
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
-            {
-                //if (smokeEnabled == false)
-                //{
-                    //smoker.Play();
-                    //var emission = smoker.emission;
-                    //ParticleSystem.EmissionModule emission = smoker.emission;
-                    //smoker.emission.enabled = true;
-                    //smoker.GetComponent<ParticleSystem>().enableEmission = true;
-                    //smokeEnabled = true;
-                    
-                    //smoker.Play();
-                    other.gameObject.GetComponent <ParticleSystem>().Play();
-                    //smoker.GetComponent <ParticleSystem>().Play();
-                    
-                    boltDetected = true;
-                    boltCleared = false;
+        if (other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            //if (smokeEnabled == false)
+            //{
+            //smoker.Play();
+            //var emission = smoker.emission;
+            //ParticleSystem.EmissionModule emission = smoker.emission;
+            //smoker.emission.enabled = true;
+            //smoker.GetComponent<ParticleSystem>().enableEmission = true;
+            //smokeEnabled = true;
 
-                    //audioSource.Play(0);
-                    
-                    sound.SetActive(true);
+            //smoker.Play();
+            other.gameObject.GetComponent<ParticleSystem>().Play();
+            //smoker.GetComponent <ParticleSystem>().Play();
 
-                    
+            boltDetected = true;
+            boltCleared = false;
 
-                    //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-                    //em.enabled = true;
-                //}
- 
-                // else
-                // {
-                //     var emission = smoker.emission;
-                //     emission.enabled = false;
-                //     //smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                    
-                // }
-            }
+            //audioSource.Play(0);
+
+            //sound.SetActive(true);
+
+
+
+            //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            //em.enabled = true;
+            //}
+
+            // else
+            // {
+            //     var emission = smoker.emission;
+            //     emission.enabled = false;
+            //     //smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            // }
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
-            {
-        //smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        //var emission = smoker.emission;
-        //ParticleSystem.EmissionModule emission = smoker.emission;
-        //smokeEnabled = false;
-        //smoker.emission.enabled = false;
-        //smoker.GetComponent<ParticleSystem>().enableEmission = false;
+        if (other.gameObject.tag == "AnomalyBoltTrigger") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            //smoker.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            //var emission = smoker.emission;
+            //ParticleSystem.EmissionModule emission = smoker.emission;
+            //smokeEnabled = false;
+            //smoker.emission.enabled = false;
+            //smoker.GetComponent<ParticleSystem>().enableEmission = false;
 
-        //smoker.GetComponent <ParticleSystem>().Stop();
-                other.gameObject.GetComponent <ParticleSystem>().Stop();
-            
+            //smoker.GetComponent <ParticleSystem>().Stop();
+            other.gameObject.GetComponent<ParticleSystem>().Stop();
 
-                sound.SetActive(false);
 
-                boltDetected = false;
-                boltCleared = true;
+            //sound.SetActive(false);
 
-                //audioSource.Pause();
+            // boltDetected = false;
+            // boltCleared = true;
 
-        //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-        //em.enabled = false;
+            //audioSource.Pause();
 
-        //smoker.Stop();
-            }
+            //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            //em.enabled = false;
+
+            //smoker.Stop();
+        }
 
     }
 
