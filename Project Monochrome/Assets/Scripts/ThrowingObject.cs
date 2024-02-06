@@ -58,7 +58,8 @@ public class ThrowingObject : MonoBehaviour
 
 
 
-    void Start () {
+    void Start()
+    {
         //light = GetComponent<Light> ();
         //light2 = GetComponent<Light> ();
         //light3 = GetComponent<Light> ();
@@ -71,22 +72,23 @@ public class ThrowingObject : MonoBehaviour
     void FixedUpdate() //FixedUpdate()
 
     {
-        throwCheck();
-        
+        //throwCheck();
 
-        if (flareCount > 0) { //canThrow == true
+
+        if (flareCount > 0)
+        { //canThrow == true
             if (Input.GetMouseButtonDown(1))//(Input.GetKeyDown(KeyCode.F)) //(Input.GetMouseButtonDown(0)) // && canThrow == true
 
             {
-            flareCount -= 1; //flareCount
-            //canThrow = false;
+                flareCount -= 1; //flareCount
+                                 //canThrow = false;
 
-            //Destroy(flare);
+                //Destroy(flare);
 
-            //rb.AddForce(new Vector3(0,15,15), ForceMode.Impulse);// used to apply force 
+                //rb.AddForce(new Vector3(0,15,15), ForceMode.Impulse);// used to apply force 
 
-            //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
-            Launch();
+                //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
+                Launch();
             }
         }
 
@@ -96,54 +98,55 @@ public class ThrowingObject : MonoBehaviour
             flareCanvas.SetActive(true);
             if (flareTime > 2)
             {
-                flareCanvas.SetActive(false);
                 flarePicked = false;
+                flareCanvas.SetActive(false);
             }
         }
 
-        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven)
         {
-            Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            Txt = GameObject.Find("FlareNumber").GetComponent<Text>();
             Txt.text = flareCount.ToString();
-            
+
         }
 
-        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven)
         {
-            Txt = GameObject.Find ("FlareNumber").GetComponent<Text> ();
+            Txt = GameObject.Find("FlareNumber").GetComponent<Text>();
             Txt.text = defaultFlare;
         }
 
-        
-    }
-
-    private void throwCheck()
-
-    {
-        if(canpickup == true) // if you enter thecollider of the objecct
-        {
-            //audio.Play(); //Play it
-            //Destroy(staticFlare);
-            //canThrow = true;
-            
-            //flareCount += 1;
-        }
-    }
-
-    public void delay() // whenever this function is called the object gets destroyed
-
-    {
-
-        //Destroy(gameObject);
-
 
     }
+
+    // private void throwCheck()
+
+    // {
+    //     if(canpickup == true) // if you enter thecollider of the objecct
+    //     {
+    //         //audio.Play(); //Play it
+    //         //Destroy(staticFlare);
+    //         //canThrow = true;
+
+    //         //flareCount += 1;
+    //     }
+    // }
+
+    // public void delay() // whenever this function is called the object gets destroyed
+
+    // {
+
+    //     //Destroy(gameObject);
+
+
+    // }
     private void Launch()
     {
-        
+
         flare.transform.SetParent(null);
         GameObject flareInstance = Instantiate(flare, spawnPoint.position, spawnPoint.rotation);
         flareInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * range, ForceMode.Impulse);
+        //flarePicked = false;
         //flareInstance.GetComponent <ParticleSystem>().Play (); //
 
         //flareInstance.GetComponent <AudioSource>().Play ();
@@ -168,7 +171,7 @@ public class ThrowingObject : MonoBehaviour
         // }                                   //
 
         //Object.Destroy(gameObject, 2.0f);
-        
+
         /*
         //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
         ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
@@ -178,10 +181,10 @@ public class ThrowingObject : MonoBehaviour
         */
         //foreach (var audioSource in sounds)
         //{
-          //  audioSource.SetActive(lightEnabled);
+        //  audioSource.SetActive(lightEnabled);
         //}
 
-        
+
         //light.enabled = true;
         //light2.enabled = true;
         //light3.enabled = true;
@@ -195,7 +198,7 @@ public class ThrowingObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if(other.gameObject.tag == "PickUp") //on the object you want to pick up set the tag to be anything, in this case "object"
+        if (other.gameObject.tag == "PickUp") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             flarePicked = true;
             canpickup = true;  //set the pick up bool to true
@@ -207,6 +210,6 @@ public class ThrowingObject : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
-     
+
     }
 }
