@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InventoryMenuScr : MonoBehaviour
 {
     public GameObject invenCanvas;
-    public bool activeInven; 
+    public bool activeInven;
     public Text Txt;
     public GameObject fpsPlayer;
 
@@ -21,7 +21,7 @@ public class InventoryMenuScr : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update() //void FixedUpdate()
     {
         CheckInvenAdv();
         // if (Input.GetKeyDown(KeyCode.Tab))
@@ -31,8 +31,8 @@ public class InventoryMenuScr : MonoBehaviour
 
 
 
-            
-            
+
+
         //     // Time.timeScale = 0;
         //     // menuCanvas.SetActive(true);
         //     // playerHudCanvas.SetActive(false);
@@ -53,7 +53,7 @@ public class InventoryMenuScr : MonoBehaviour
         //     invenCanvas.SetActive(false);
         //     isOnTest = false;
         // }
-        
+
 
 
     }
@@ -88,7 +88,7 @@ public class InventoryMenuScr : MonoBehaviour
                 invenCanvas.SetActive(false);
                 fpsPlayer.GetComponent<GamePauseScr>().enabled = true;
             }
-            
+
         }
         else if (!activeInven && Input.GetKeyDown(KeyCode.Tab))
         {

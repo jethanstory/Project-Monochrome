@@ -11,6 +11,10 @@ public class BoltPickupThrow : MonoBehaviour
 
     float range = 15f;
 
+    public GameObject anomalySoundTrigger;
+
+    public GameObject boltThrowSound;
+
     public Text Txt;
 
     public GameObject myHands; //reference to your hands/the position where you want your object to go
@@ -51,7 +55,8 @@ public class BoltPickupThrow : MonoBehaviour
     bool canpickup; //a bool to see if you can or cant pick up the item
     //bool hasItem; // a bool to see if you have an item in your hand
 
-    void Start () {
+    void Start()
+    {
         //light = GetComponent<Light> ();
         //light2 = GetComponent<Light> ();
         //light3 = GetComponent<Light> ();
@@ -61,26 +66,37 @@ public class BoltPickupThrow : MonoBehaviour
         //audio = GetComponent<AudioSource>();
     }
 
-    void FixedUpdate() //FixedUpdate()
+    void Update() //FixedUpdate()
 
     {
         //throwCheck();
         //MenuCheck();
 
-        if (boltCount > 0) { //canThrow == true
-            if (Input.GetMouseButtonDown(0)) // && canThrow == true
+        if (boltCount > 0)
+        { //canThrow == true
+            if (Input.GetMouseButtonDown(0) && (!fpsPlayer.GetComponent<GamePauseScr>().activeMenu)) // && canThrow == true
 
             {
-            boltCount -= 1; //flareCount
-            //canThrow = false;
+                boltCount -= 1; //flareCount
+                                //canThrow = false;
 
-            //Destroy(flare);
+                //Destroy(flare);
 
-            //rb.AddForce(new Vector3(0,15,15), ForceMode.Impulse);// used to apply force 
+                //rb.AddForce(new Vector3(0,15,15), ForceMode.Impulse);// used to apply force 
 
-            //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
-            Launch();
-            //StartCoroutine(ExampleCoroutine());
+                //Invoke("delay", 4f);//it is used to create delay in destroying the game object 
+
+                Launch();
+
+                // anomalySoundTrigger.SetActive(false);
+                // bolt.transform.SetParent(null);
+                // GameObject boltInstance = Instantiate(bolt, spawnPoint.position, spawnPoint.rotation);
+                // boltInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * range, ForceMode.Impulse);
+
+                // Object.Destroy(boltInstance, 5.0f);
+
+
+                //StartCoroutine(ExampleCoroutine());
             }
         }
 
@@ -105,59 +121,61 @@ public class BoltPickupThrow : MonoBehaviour
                 boltCanvasLarge.SetActive(false);
             }
         }
-        
-        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+
+        if (fpsPlayer.GetComponent<InventoryMenuScr>().activeInven)
         {
-            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
+            Txt = GameObject.Find("ScrapNumber").GetComponent<Text>();
             Txt.text = boltCount.ToString();
-            
+
         }
 
-        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven) 
+        if (!fpsPlayer.GetComponent<InventoryMenuScr>().activeInven)
         {
-            Txt = GameObject.Find ("ScrapNumber").GetComponent<Text> ();
+            Txt = GameObject.Find("ScrapNumber").GetComponent<Text>();
             Txt.text = defaultBolt;
         }
 
-        
 
-        
-    }
-
-    private void throwCheck()
-
-    {
-        if(canpickup == true) // if you enter thecollider of the objecct
-        {
-            //audio.Play(); //Play it
-            //Destroy(staticFlare);
-            //canThrow = true;
-            
-            //flareCount += 1;
-        }
-    }
-
-    public void delay() // whenever this function is called the object gets destroyed
-
-    {
-
-        //Destroy(gameObject);
 
 
     }
+
+    // private void throwCheck()
+
+    // {
+    //     if (canpickup == true) // if you enter thecollider of the objecct
+    //     {
+    //         //audio.Play(); //Play it
+    //         //Destroy(staticFlare);
+    //         //canThrow = true;
+
+    //         //flareCount += 1;
+    //     }
+    // }
+
+    // public void delay() // whenever this function is called the object gets destroyed
+
+    // {
+
+    //     //Destroy(gameObject);
+
+
+    // }
     private void Launch()
     {
-        
+        boltThrowSound.SetActive(false);
+        anomalySoundTrigger.SetActive(false);
         bolt.transform.SetParent(null);
         GameObject boltInstance = Instantiate(bolt, spawnPoint.position, spawnPoint.rotation);
         boltInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * range, ForceMode.Impulse);
-        
+        boltThrowSound.SetActive(true);
+
         //boltInstance.GetComponent <ParticleSystem>().Play ();
-        
+
         //flareInstance.GetComponent <AudioSource>().Play ();
 
         //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
-        
+
         //light = flareInstance.GetComponent <Light>();
 
         //audioSource = flareInstance.GetComponent<AudioSource>();
@@ -173,9 +191,9 @@ public class BoltPickupThrow : MonoBehaviour
         // {
         //     light.SetActive(lightEnabled);
         // }
-        
-        
-        
+
+
+
         /*
         //ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
         ObjectIwantToPickUp.transform.position = myHands.transform.position; // sets the position of the object to your hand position
@@ -185,10 +203,10 @@ public class BoltPickupThrow : MonoBehaviour
         */
         //foreach (var audioSource in sounds)
         //{
-          //  audioSource.SetActive(lightEnabled);
+        //  audioSource.SetActive(lightEnabled);
         //}
 
-        
+
         //light.enabled = true;
         //light2.enabled = true;
         //light3.enabled = true;
@@ -200,14 +218,14 @@ public class BoltPickupThrow : MonoBehaviour
 
     }
 
-    private void MenuCheck()
-    {
-        
-    }
+    // private void MenuCheck()
+    // {
+
+    // }
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if(other.gameObject.tag == "PickUpBolt") //on the object you want to pick up set the tag to be anything, in this case "object"
+        if (other.gameObject.tag == "PickUpBolt") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
@@ -217,7 +235,7 @@ public class BoltPickupThrow : MonoBehaviour
             boltPicked = true;
             largeBoltPicked = false;
         }
-        if(other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
+        if (other.gameObject.tag == "PickUpBoltBox") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             boltTime = 0f;
             canpickup = true;  //set the pick up bool to true
@@ -231,7 +249,7 @@ public class BoltPickupThrow : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
-     
+
     }
     // IEnumerator ExampleCoroutine()
     // {

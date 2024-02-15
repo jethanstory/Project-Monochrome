@@ -68,5 +68,21 @@ public class IntroSceneScr : MonoBehaviour
             startTime = 0f;
             checkEnd = false;
         }
+
+        if (Input.anyKey)
+        {
+            // introText7.SetActive(false);
+
+            introText5.SetActive(false);
+            introText4.SetActive(false);
+            introText3.SetActive(false);
+            introText2.SetActive(false);
+            introText.SetActive(false);
+            introText6.SetActive(true);
+            // introText8.SetActive(true);
+            //SceneManager.LoadScene("TestStartScene");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("MainZone");
+        }
     }
 }
